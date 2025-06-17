@@ -51,6 +51,13 @@
         gtag('config', 'G-ZXVQLKMQMJ');
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("crY21U3CjDYMydejw"); // Replace with your public key
+        })();
+    </script>
+
 
 
 </head>
@@ -103,21 +110,9 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto py-0">
                         <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <!-- <a href="about.html" class="nav-item nav-link">About</a> -->
-                        <!-- <a href="service.html" class="nav-item nav-link">Service</a> -->
-                        <!-- <a href="blog.html" class="nav-item nav-link">Blog</a> -->
                         <a href="cars.html" class="nav-item nav-link">Our Cars</a>
 
-                        <!-- <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu m-0">
-                                <a href="feature.html" class="dropdown-item">Our Feature</a>
-                                <a href="cars.html" class="dropdown-item">Our Cars</a>
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
-                            </div>
-                        </div> -->
+
                         <a href="contact.html" class="nav-item nav-link">Contact Us</a>
                     </div>
                     <a href="https://wa.me/+919111484856" class="btn btn-primary rounded-pill py-2 px-4" target="_blank">
@@ -153,7 +148,7 @@
                                 <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
                                     <div class="bg-secondary rounded p-5">
                                         <h4 class="text-white mb-4">CONTINUE CAR RESERVATION</h4>
-                                        <form>
+                                        <form id="reservationForm">
                                             <div class="row g-3">
 
                                                 <!-- Full Name Field -->
@@ -162,7 +157,7 @@
                                                         <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                                             <span class="fas fa-user"></span><span class="ms-1">Full Name</span>
                                                         </div>
-                                                        <input class="form-control" type="text" placeholder="Enter Your Full Name" aria-label="Full Name" required>
+                                                        <input name="name" class="form-control" type="text" placeholder="Enter Your Full Name" required>
                                                     </div>
                                                 </div>
 
@@ -172,13 +167,13 @@
                                                         <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                                             <span class="fas fa-phone"></span><span class="ms-1">Mobile Number</span>
                                                         </div>
-                                                        <input class="form-control" type="tel" placeholder="Enter Your Mobile Number" aria-label="Mobile Number" required>
+                                                        <input name="mobile_number" class="form-control" type="tel" placeholder="Enter Your Mobile Number" required>
                                                     </div>
                                                 </div>
 
                                                 <!-- Car Type Selection -->
                                                 <div class="col-12">
-                                                    <select class="form-select" aria-label="Default select example">
+                                                    <select name="car_type" class="form-select" required>
                                                         <option selected>Select Your Car type</option>
                                                         <option value="1">Innova</option>
                                                         <option value="2">Ertiga</option>
@@ -195,60 +190,9 @@
                                                         <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                                             <span class="fas fa-map-marker-alt"></span> <span class="ms-1">Pick Up</span>
                                                         </div>
-                                                        <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Pick Up Location">
+                                                        <input name="pickup" class="form-control" type="text" placeholder="Enter a City or Airport" required>
                                                     </div>
                                                 </div>
-
-                                                <!-- Drop off Location -->
-                                                <!-- <div class="col-12">
-                                                    <a href="#" class="text-start text-white d-block mb-2">Need a different drop-off location?</a>
-                                                    <div class="input-group">
-                                                        <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                            <span class="fas fa-map-marker-alt"></span><span class="ms-1">Drop off</span>
-                                                        </div>
-                                                        <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Drop off Location">
-                                                    </div>
-                                                </div> -->
-
-                                                <!-- Pick Up Date and Time
-                                                <div class="col-12">
-                                                    <div class="input-group">
-                                                        <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                            <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick Up</span>
-                                                        </div>
-                                                        <input class="form-control" type="date">
-                                                        <select class="form-select ms-3" aria-label="Default select example">
-                                                            <option selected>12:00AM</option>
-                                                            <option value="1">1:00AM</option>
-                                                            <option value="2">2:00AM</option>
-                                                            <option value="3">3:00AM</option>
-                                                            <option value="4">4:00AM</option>
-                                                            <option value="5">5:00AM</option>
-                                                            <option value="6">6:00AM</option>
-                                                            <option value="7">7:00AM</option>
-                                                        </select>
-                                                    </div>
-                                                </div> -->
-
-                                                <!-- Drop off Date and Time
-                                                <div class="col-12">
-                                                    <div class="input-group">
-                                                        <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                            <span class="fas fa-calendar-alt"></span><span class="ms-1">Drop off</span>
-                                                        </div>
-                                                        <input class="form-control" type="date">
-                                                        <select class="form-select ms-3" aria-label="Default select example">
-                                                            <option selected>12:00AM</option>
-                                                            <option value="1">1:00AM</option>
-                                                            <option value="2">2:00AM</option>
-                                                            <option value="3">3:00AM</option>
-                                                            <option value="4">4:00AM</option>
-                                                            <option value="5">5:00AM</option>
-                                                            <option value="6">6:00AM</option>
-                                                            <option value="7">7:00AM</option>
-                                                        </select>
-                                                    </div>
-                                                </div> -->
 
                                                 <!-- Submit Button -->
                                                 <div class="col-12">
@@ -278,7 +222,7 @@
                                 <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
                                     <div class="bg-secondary rounded p-5">
                                         <h4 class="text-white mb-4">CONTINUE CAR RESERVATION</h4>
-                                        <form>
+                                        <form id="reservationForm1">
                                             <div class="row g-3">
 
                                                 <!-- Full Name Field -->
@@ -287,7 +231,7 @@
                                                         <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                                             <span class="fas fa-user"></span><span class="ms-1">Full Name</span>
                                                         </div>
-                                                        <input class="form-control" type="text" placeholder="Enter Your Full Name" aria-label="Full Name" required>
+                                                        <input name="name" class="form-control" type="text" placeholder="Enter Your Full Name" required>
                                                     </div>
                                                 </div>
 
@@ -297,13 +241,13 @@
                                                         <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                                             <span class="fas fa-phone"></span><span class="ms-1">Mobile Number</span>
                                                         </div>
-                                                        <input class="form-control" type="tel" placeholder="Enter Your Mobile Number" aria-label="Mobile Number" required>
+                                                        <input name="mobile_number" class="form-control" type="tel" placeholder="Enter Your Mobile Number" required>
                                                     </div>
                                                 </div>
 
                                                 <!-- Car Type Selection -->
                                                 <div class="col-12">
-                                                    <select class="form-select" aria-label="Default select example">
+                                                    <select name="car_type" class="form-select" required>
                                                         <option selected>Select Your Car type</option>
                                                         <option value="1">Innova</option>
                                                         <option value="2">Ertiga</option>
@@ -320,60 +264,9 @@
                                                         <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                                             <span class="fas fa-map-marker-alt"></span> <span class="ms-1">Pick Up</span>
                                                         </div>
-                                                        <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Pick Up Location">
+                                                        <input name="pickup" class="form-control" type="text" placeholder="Enter a City or Airport" required>
                                                     </div>
                                                 </div>
-
-                                                <!-- Drop off Location -->
-                                                <!-- <div class="col-12">
-                                                    <a href="#" class="text-start text-white d-block mb-2">Need a different drop-off location?</a>
-                                                    <div class="input-group">
-                                                        <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                            <span class="fas fa-map-marker-alt"></span><span class="ms-1">Drop off</span>
-                                                        </div>
-                                                        <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Drop off Location">
-                                                    </div>
-                                                </div> -->
-
-                                                <!-- Pick Up Date and Time -->
-                                                <!-- <div class="col-12">
-                                                    <div class="input-group">
-                                                        <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                            <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick Up</span>
-                                                        </div>
-                                                        <input class="form-control" type="date">
-                                                        <select class="form-select ms-3" aria-label="Default select example">
-                                                            <option selected>12:00AM</option>
-                                                            <option value="1">1:00AM</option>
-                                                            <option value="2">2:00AM</option>
-                                                            <option value="3">3:00AM</option>
-                                                            <option value="4">4:00AM</option>
-                                                            <option value="5">5:00AM</option>
-                                                            <option value="6">6:00AM</option>
-                                                            <option value="7">7:00AM</option>
-                                                        </select>
-                                                    </div>
-                                                </div> -->
-
-                                                <!-- Drop off Date and Time -->
-                                                <!-- <div class="col-12">
-                                                    <div class="input-group">
-                                                        <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                            <span class="fas fa-calendar-alt"></span><span class="ms-1">Drop off</span>
-                                                        </div>
-                                                        <input class="form-control" type="date">
-                                                        <select class="form-select ms-3" aria-label="Default select example">
-                                                            <option selected>12:00AM</option>
-                                                            <option value="1">1:00AM</option>
-                                                            <option value="2">2:00AM</option>
-                                                            <option value="3">3:00AM</option>
-                                                            <option value="4">4:00AM</option>
-                                                            <option value="5">5:00AM</option>
-                                                            <option value="6">6:00AM</option>
-                                                            <option value="7">7:00AM</option>
-                                                        </select>
-                                                    </div>
-                                                </div> -->
 
                                                 <!-- Submit Button -->
                                                 <div class="col-12">
@@ -1377,6 +1270,80 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script>
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const fullName = this.name.value;
+            const mobile = this.mobile_number.value;
+            const carType = this.car_type.value;
+            const pickup = this.pickup.value;
+
+            const templateParams = {
+                name: fullName,
+                mobile_number: mobile,
+                car_type: carType,
+                pickup: pickup
+            };
+
+            // Send Email
+            emailjs.send('service_e2jaqke', 'template_m31s9ij', templateParams)
+                .then(() => {
+                    console.log('Email sent');
+                }, (error) => {
+                    console.log('Failed to send email:', error);
+                });
+
+            // Send WhatsApp using CallMeBot (replace phone and apikey)
+            const msg = `Reservation Request:\nName: ${fullName}\nPhone: ${mobile}\nCar: ${carType}\nPickup: ${pickup}`;
+            fetch(`https://api.callmebot.com/whatsapp.php?phone=919630081077&text=${encodeURIComponent(msg)}&apikey=yourapikey`)
+                .then(res => console.log("WhatsApp sent"))
+                .catch(err => console.log("WhatsApp error", err));
+
+            alert("Booking submitted! We’ll contact you shortly.");
+        });
+    </script>
+
+
+    <script src="js/main.js"></script>
+
+    <script>
+        document.getElementById('reservationForm1').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const fullName = this.name.value;
+            const mobile = this.mobile_number.value;
+            const carType = this.car_type.value;
+            const pickup = this.pickup.value;
+
+            const templateParams = {
+                name: fullName,
+                mobile_number: mobile,
+                car_type: carType,
+                pickup: pickup
+            };
+
+            // Send Email
+            emailjs.send('service_e2jaqke', 'template_m31s9ij', templateParams)
+                .then(() => {
+                    console.log('Email sent');
+                }, (error) => {
+                    console.log('Failed to send email:', error);
+                });
+
+            // Send WhatsApp using CallMeBot (replace phone and apikey)
+            const msg = `Reservation Request:\nName: ${fullName}\nPhone: ${mobile}\nCar: ${carType}\nPickup: ${pickup}`;
+            fetch(`https://api.callmebot.com/whatsapp.php?phone=919630081077&text=${encodeURIComponent(msg)}&apikey=yourapikey`)
+                .then(res => console.log("WhatsApp sent"))
+                .catch(err => console.log("WhatsApp error", err));
+
+            alert("Booking submitted! We’ll contact you shortly.");
+        });
+    </script>
+
 </body>
 
 </html>
